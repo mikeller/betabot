@@ -8,5 +8,11 @@
   "hubot-maps",
   "hubot-redis-brain",
   "hubot-rules",
-  "hubot-shipit"
+  "hubot-shipit",
+  "hubot-shy",
+  "hubot-suggest",
+  "hubot-marvin",
+  "hubot-bofh",
+  "hubot-giphy",
+  "hubot-caffeine"
 ]
