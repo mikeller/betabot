@@ -28,7 +28,7 @@ module.exports = (robot) ->
 
   githubIgnoreUsers = process.env.HUBOT_GITHUB_ISSUE_LINK_IGNORE_USERS
   if githubIgnoreUsers == undefined
-    githubIgnoreUsers = "github|hubot"
+    githubIgnoreUsers = "github|hubot|betabot"
 
   robot.hear /((\S*|^)?#(\d+)).*/, (msg) ->
     return if msg.message.user.name.match(new RegExp(githubIgnoreUsers, "gi"))
@@ -37,16 +37,12 @@ module.exports = (robot) ->
     if isNaN(issue_number)
       return
     
-    if msg.match[2] == undefined
-      bot_github_repo = github.qualified_repo process.env.HUBOT_GITHUB_REPO
-    if msg.match[2] == "bfc"
-      bot_github_repo = github.qualified_repo "betaflight-configurator"
-    if msg.match[2] == "cf"
-      bot_github_repo = github.qualified_repo "cleanflight"
-    if msg.match[2] == "cfc"
-      bot_github_repo = github.qualified_repo "cleanflight-configurator"
-    else
-      bot_github_repo = github.qualified_repo msg.match[2]
+    bot_github_repo = switch msg.match[2]
+        when "bfc" then github.qualified_repo "betaflight/betaflight-configurator"
+        when "cf"  then github.qualified_repo "cleanflight/cleanflight"
+        when "cfc" then github.qualified_repo "cleanflight/cleanflight-configurator"
+        when undefined then github.qualified_repo process.env.HUBOT_GITHUB_REPO
+        else github.qualified_repo msg.match[2]
     
     issue_title = ""
     base_url = process.env.HUBOT_GITHUB_API || 'https://api.github.com'

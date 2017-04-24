@@ -9,7 +9,6 @@ applications:
   env:
     HUBOT_GITHUB_REPO:               betaflight
     HUBOT_GITHUB_TOKEN:              <github token>
-    HUBOT_GITHUB_USER:               betaflight
     HUBOT_GOOGLE_CSE_ID:             <cse id>
     HUBOT_GOOGLE_CSE_KEY:            <cse key>
     HUBOT_SLACK_BOTNAME:             betabot
