@@ -41,6 +41,7 @@ module.exports = (robot) ->
         when "bfc" then github.qualified_repo "betaflight/betaflight-configurator"
         when "cf"  then github.qualified_repo "cleanflight/cleanflight"
         when "cfc" then github.qualified_repo "cleanflight/cleanflight-configurator"
+        when "bhc" then github.qualified_repo "blheli-configurator/blheli-configurator"
         when undefined then github.qualified_repo process.env.HUBOT_GITHUB_REPO
         else github.qualified_repo msg.match[2]
     
