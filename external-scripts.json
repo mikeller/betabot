@@ -13,5 +13,7 @@
   "hubot-marvin",
   "hubot-bofh",
   "hubot-giphy",
-  "hubot-caffeine"
+  "hubot-caffeine",
+  "hubot-plusplus",
+  "hubot-fliptable"
 ]
